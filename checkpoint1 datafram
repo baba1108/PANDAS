@@ -1,0 +1,25 @@
+import pandas as pd
+
+data = {
+    'Nom': ['John', 'Mary', 'Bob', 'Sarah', 'Tom', 'Lisa'],
+    'Département': ['IT', 'Marketing', 'Ventes', 'IT', 'Finances', 'Marketing'],
+    'Âge': [30, 40, 25, 35, 45, 28],
+    'Sexe': ['Homme', 'Femme', 'Homme', 'Femme', 'Homme', 'Femme'],
+    'Salaire': [50000, 60000, 45000, 55000, 70000, 55000],
+    'Expérience': [3, 7, 2, 5, 10, 4]
+}
+
+employee_df = pd.DataFrame(data)
+
+premieres_lignes = employee_df.iloc[:3]
+
+marketing_df = employee_df.loc[employee_df['Département'] == 'Marketing']
+
+age_sexe_df = employee_df.iloc[:4, [2, 3]]  # Âge est à l'index 2 et Sexe à l'index 3
+
+hommes_df = employee_df.loc[employee_df['Sexe'] == 'Homme', ['Salaire', 'Expérience']]
+
+print("3 premières lignes:\n", premieres_lignes)
+print("\nLignes avec Département 'Marketing':\n", marketing_df)
+print("\nÂge et Sexe pour les 4 premières lignes:\n", age_sexe_df)
+print("\nSalaire et Expérience pour les hommes:\n", hommes_df)
